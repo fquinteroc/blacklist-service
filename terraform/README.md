@@ -20,3 +20,28 @@ Existe la opcion de usar terraform en contenedor pero supongo que se necesita un
 ```bash
 docker run hashicorp/terraform init
 ```
+
+## Mejoras
+
+```jsonc
+// Permisos ya se sabe que se necesitan para el usuario terraform
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ElasticBeanstalkS3Access",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::elasticbeanstalk-us-east-1-405640915175",
+        "arn:aws:s3:::elasticbeanstalk-us-east-1-405640915175/*"
+      ]
+    }
+  ]
+}
+```
