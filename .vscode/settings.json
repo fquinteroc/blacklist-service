@@ -8,7 +8,5 @@
   },
   "python.analysis.typeCheckingMode": "basic",
   "isort.args": ["--profile=black"],
-  "python.envFile": "${workspaceFolder}/.venv",
-  "workbench.colorTheme": "Material",
-  "workbench.iconTheme": "material-icon-theme"
+  "python.envFile": "${workspaceFolder}/.venv"
 }

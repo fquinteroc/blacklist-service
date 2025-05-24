@@ -7,9 +7,9 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        APP_PORT: 5006
+        APP_PORT: 5003
     ports:
-      - "5006:5006"
+      - "5003:5003"
     env_file:
       - .env # NEW_RELIC_LICENSE_KEY=
     environment:
