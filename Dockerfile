@@ -23,7 +23,7 @@ ENV PORT=${APP_PORT:-5001}
 EXPOSE $PORT
 
 # Para desarrollo
-ENTRYPOINT ["newrelic-admin", "run-program", "python3", "application.py"]
+# ENTRYPOINT ["newrelic-admin", "run-program", "python3", "application.py"]
 
 # Para producción
-# ENTRYPOINT ["newrelic-admin", "run-program", "gunicorn", "--workers=2", "application:app"]
+ENTRYPOINT ["newrelic-admin", "run-program", "gunicorn", "--workers=2", "application:app"]
