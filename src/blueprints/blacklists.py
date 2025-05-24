@@ -1,11 +1,15 @@
-from flask import Blueprint, request, jsonify
 import re
-from src.session import Session
-from src.models.blacklist import Blacklist
-from sqlalchemy.exc import IntegrityError
-from src.commands.token_verifier import token_required
 
-blacklist_blueprint = Blueprint("blacklist", __name__, url_prefix="/blacklists")
+from flask import Blueprint, jsonify, request
+from sqlalchemy.exc import IntegrityError
+
+from src.commands.token_verifier import token_required
+from src.models.blacklist import Blacklist
+from src.session import Session
+
+blacklist_blueprint = Blueprint(
+    "blacklist", __name__, url_prefix="/blacklists")
+
 
 @blacklist_blueprint.route("", methods=["POST"])
 @token_required
@@ -48,6 +52,7 @@ def add_to_blacklist():
         return jsonify({"error": "El email ya está en la blacklist"}), 409
     finally:
         session.close()
+
 
 @blacklist_blueprint.route("/<email>", methods=["GET"])
 @token_required

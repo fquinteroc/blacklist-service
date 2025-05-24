@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "d16b4c1d-8e15-4d60-b598-5ded6b06ef00",
+		"name": "DevOps BlackList Service",
+		"description": "El objetivo de este microservicio es que cientos de sistemas internos puedan consultar si un email está en la lista negra global de la empresa o no, así como agregar emails a la lista negra global.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1543078"
+	},
+	"item": [
+		{
+			"name": "ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5006/ping",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5006",
+					"path": [
+						"ping"
+					]
+				},
+				"description": "Endpoint para verificar el estado de salud del microservico."
+			},
+			"response": []
+		},
+		{
+			"name": "blacklists",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "secret_token_blacklist",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"postman@example.com\",\r\n    \"app_uuid\": \"123d4567-d89b-12c3-b456-426614174000\",\r\n    \"blocked_reason\": \"Test manual con postman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5006/blacklists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5006",
+					"path": [
+						"blacklists"
+					]
+				},
+				"description": "Permite agregar un email a la lista negra global de la organización."
+			},
+			"response": []
+		},
+		{
+			"name": "/blacklists/<string:email>",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "secret_token_blacklist",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5006/blacklists/postman@example.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5006",
+					"path": [
+						"blacklists",
+						"postman@example.com"
+					]
+				},
+				"description": "Permite saber si un email está en la lista negra global de la organización o no, y el motivo por el que fue agregado a la lista negra."
+			},
+			"response": []
+		}
+	]
+}
