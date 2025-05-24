@@ -113,10 +113,10 @@ pip3 install -r src/requirements.txt
 # pip3 install Werkzeug
 # pip3 install psycopg2-binary
 # pip3 install gunicorn
-# pip3 freeze > src/requirements.txt
+# pip3 freeze > requirements.txt
 
 # Ejecuta la aplicación
-FLASK_APP=src/application.py flask run
+FLASK_APP=application.py flask run
 
 # Desactivar el entorno (requiere: Activar el entorno)
 deactivate
