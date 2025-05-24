@@ -5,9 +5,11 @@ class ApiError(Exception):
     def __str__(self):
         return self.description
 
+
 class Unauthorized(ApiError):
     code = 403
     description = "Token no válido"
+
 
 class EmailNotFound(ApiError):
     code = 404

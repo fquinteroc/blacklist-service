@@ -1,17 +1,28 @@
-version: '3.8'
+name: blacklist-service
 
 services:
   blacklist-service:
-    build: .
     container_name: blacklist-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        APP_PORT: 5003
     ports:
-      - "80:80"
+      - "5003:5003"
+    env_file:
+      - .env # NEW_RELIC_LICENSE_KEY=
     environment:
       FLASK_ENV: development
-    volumes:
-      - .:/app
-    networks:
-      - app_net
-
-networks:
-  app_net:
+    deploy:
+      resources:
+        reservations:
+          cpus: "2"
+          memory: 2G
+    develop:
+      watch:
+        - action: sync
+          path: ./src
+          target: /app/src
+        - action: rebuild
+          path: .env
