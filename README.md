@@ -158,3 +158,4 @@ curl --location 'http://localhost:5006/blacklists/postman@example.com' \
 
 ![Prueba de carga](./docs/Prueba-de-carga.png)
 ![Monitoreo con new relic](./docs/Monitoreo-con-new-relic.png)
+![Consumo-de-recursos](./docs/Consumo-de-recursos.png)
