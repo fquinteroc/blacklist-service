@@ -128,16 +128,17 @@ deactivate
 
 ```bash
 export SECRET_TOKEN_BLACKLIST='secret_token_blacklist'
+export SERVER_HOST='http://localhost:5006'
 ```
 
 ```bash
-curl --location 'http://localhost:5006/ping'
+curl --location "${SERVER_HOST}/ping"
 ```
 
 ### 2. Agregar un email a la lista negra global de la organización.
 
 ```bash
-curl --location 'http://localhost:5006/blacklists' \
+curl --location "${SERVER_HOST}/blacklists" \
 --header 'Content-Type: application/json' \
 --header "Authorization: ${SECRET_TOKEN_BLACKLIST}" \
 --data-raw '{
@@ -150,6 +151,6 @@ curl --location 'http://localhost:5006/blacklists' \
 ### 3. Saber si un email está en la lista negra global de la organización o no, y el motivo por el que fue agregado a la lista negra.
 
 ```bash
-curl --location 'http://localhost:5006/blacklists/postman@example.com' \
+curl --location "${SERVER_HOST}/blacklists/postman@example.com" \
 --header "Authorization: ${SECRET_TOKEN_BLACKLIST}"
 ```
