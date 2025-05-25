@@ -59,8 +59,15 @@ docker exec -ti blacklist-service bash
 #### 2.1.a. Correr la imagen pasando la llave como variable de entorno
 
 ```bash
+# the NR license key you retrieved in first section
+export NEW_RELIC_LICENSE_KEY=xxxxxxxxxxxx
+
 # Guradar la llave en el archivo .env
+echo 'NEW_RELIC_LICENSE_KEY=xxxxxxxxxxxx' >> .env
+
+# Pruebas locales con docker compose
 docker compose up --build -d
+
 # En desarrollo:
 docker compose watch
 ```
