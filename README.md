@@ -153,3 +153,8 @@ curl --location 'http://localhost:5006/blacklists' \
 curl --location 'http://localhost:5006/blacklists/postman@example.com' \
 --header "Authorization: ${SECRET_TOKEN_BLACKLIST}"
 ```
+
+## Evidencias de monitoreo
+
+![Prueba de carga](./docs/Prueba-de-carga.png)
+![Monitoreo con new relic](./docs/Monitoreo-con-new-relic.png)
