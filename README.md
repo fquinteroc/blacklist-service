@@ -161,3 +161,8 @@ curl --location "${SERVER_HOST}/blacklists" \
 curl --location "${SERVER_HOST}/blacklists/postman@example.com" \
 --header "Authorization: ${SECRET_TOKEN_BLACKLIST}"
 ```
+
+## Evidencias de monitoreo
+
+![Prueba de carga](./docs/Prueba-de-carga.png)
+![Monitoreo con new relic](./docs/Monitoreo-con-new-relic.png)
